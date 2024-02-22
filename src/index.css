@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts Start */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@layer base {
+  * {
+    font-family: "Raleway", sans-serif;
+  }
+}
+/* Google Fonts End */
+
+/* navbar section start */
+.menu-bar ul li {
+  position: relative;
+  margin: 0 20px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.menu-bar ul li a {
+  padding: 10px 0;
+  font-size: 16px;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.menu-bar ul li a:hover {
+  /* color: #fff; */
+}
+.menu-bar ul li:hover {
+  color: #fff;
+}
+/* dropdown menu style */
+.dropdown-menu {
+  display: none;
+}
+.menu-bar ul li:hover .dropdown-menu {
+  display: block;
+  position: absolute;
+  top: 80px;
+  background: #383cc1;
+  border-top: 3px solid #000000b6;
+  box-shadow: 2px 5px 5px #00000011;
+  z-index: 1000;
+}
+.dropdown-menu ul li {
+  margin: 20px;
+  height: 20px;
+}
+.menu-bar ul li:hover .dropdown-menu ul {
+  display: block;
+}
+.menu-bar ul li:hover .dropdown-menu ul li {
+  width: 200px;
+}
+/* navbar section end */
+
+.textEffect {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Category section Start */
+
+.wrapper {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.wrapper .carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 4) - 12px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: 0;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel :where(.card, ) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.carousel.no-transition {
+  scroll-behavior: auto;
+}
+
+.carousel.dragging {
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+}
+.carousel.dragging .card {
+  cursor: grab;
+  user-select: none;
+}
+
+.carousel .card {
+  scroll-snap-align: start;
+  list-style: none;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  cursor: pointer;
+  padding-bottom: 15px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper .carousel {
+    grid-auto-columns: calc((100% / 2) - 9px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper .carousel {
+    grid-auto-columns: 100%;
+  }
+}
+/* Category section End */
+
+/* modal section start */
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+/* modal section end */
